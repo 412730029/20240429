@@ -1,4 +1,3 @@
-
 var captureGraphics
 var capture_width = 640
 var capture_height = 480
@@ -12,7 +11,7 @@ function setup() {
   captureGraphics.translate(capture_width,0)
   captureGraphics.scale(-1,1)
   capture.hide()
-  
+
 
   //選鈕的介面
   radioElement = createRadio();
@@ -69,7 +68,6 @@ push()
       textSize(span)
       textStyle(BOLD)
       text(txt[bkId],x,y)
-
      }
   }
 }
