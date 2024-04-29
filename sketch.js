@@ -2,7 +2,7 @@
 var captureGraphics
 var capture_width = 640
 var capture_height = 480
-var span = 10
+var span = 5
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -12,12 +12,21 @@ function setup() {
   captureGraphics.translate(capture_width,0)
   captureGraphics.scale(-1,1)
   capture.hide()
+
+  //選鈕的介面
+  radioElement = createRadio();
+  radioElement.position(width/2-300,20)
+  radioElement.option("方塊")
+  radioElement.option("圓圈")
+  radioElement.style("color","#fff")
+  // radioElement.style("font-size",30)
   
 }
 
 function draw() {
   background(220);
   noStroke()
+  span = 5+map(mouseX,0,width,0,20)
 
 push()
 
@@ -27,10 +36,15 @@ push()
     for(var y = 0;y<captureGraphics.height ; y=y+span){
       var pixel = captureGraphics.get(x,y)
       fill(pixel)
-      rect(x,y,10)
+      if(radioElement.value()=="方塊"){
+        rect(x,y,span)
+      }
+      if(radioElement.value()=="圓圈"){
+        ellipse(x,y,span)
     }
   }
 
 pop()
 
-}
+ }
+  }
